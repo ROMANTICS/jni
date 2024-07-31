@@ -1,0 +1,16 @@
+ifndef JAVA_HOME
+$(warning Set JAVA_HOME environment variable)
+endif
+
+JAVA  := "$$JAVA_HOME/bin/java"
+JAVAC := "$$JAVA_HOME/bin/javac"
+JAVAH := "$$JAVA_HOME/bin/javah"
+
+TARGET := target
+SRC:=src/main/java
+JAVA_FILE := $(wildcard $(SRC)/org/romantics/jni/**/*.java)
+JAVA_HEADER_FILE := $(wildcard $(TARGET)/headers/*.h)
+
+all : compile
+compile :
+	mvn compile
